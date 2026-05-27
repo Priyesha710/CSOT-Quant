@@ -129,6 +129,7 @@ Why historical performance and live performance routinely diverge, with real exa
 https://www.youtube.com/watch?v=94s0yYECeR8
 *20 min*
 
+**Suggested Reading :** https://zerodha.com/varsity/module/trading-systems/ 
 ---
 
 **Before moving to Phase 3, do these two things:**
