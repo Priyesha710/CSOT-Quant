@@ -112,7 +112,6 @@ https://algotrading101.com/learn/build-my-own-custom-backtester-python/
 
 *~2 hours to set up and start; rest of the week to complete the task*
 
-No new concepts. Phase 3 is the bridge from ideas to code. Get the tooling in place, do the short warm-up, then build.
 
 ### Getting set up
 
