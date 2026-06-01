@@ -143,7 +143,7 @@ Then report the following for the raw asset. This is your **buy-and-hold benchma
 
 - Mean daily return and annualised return
 - Annualised volatility (daily std × √252)
-- Annualised Sharpe ratio — use risk-free rate = 0, and note that this is a simplification
+- Annualised Sharpe ratio : use risk-free rate = 0, and note that this is a simplification
 - Maximum drawdown over the full sample period
 - Best and worst single day
 
