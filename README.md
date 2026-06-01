@@ -187,7 +187,7 @@ Compare all four metrics side-by-side against your Part 1 benchmark.
 - Looking at your Sharpe and drawdown numbers **together**: is your signal a genuine improvement over buy-and-hold, a tradeoff, or worse on both? Be specific about which numbers you're comparing and what conclusion follows.
 
 ---
-**Here is a sample colab notebook. Learn from it and make your own, don't copy the content:** https://colab.research.google.com/drive/15Cs9qLF3uROrLsanck6VaR2fhVmWYGwo?usp=sharing
+**Here is a sample colab notebook. Learn from it and make your own, don't copy the content:** [Sample Google Colab Notebook](https://colab.research.google.com/drive/1bhi_ANlQ4ETjt624bvWx8NYzVEF6bAba?usp=sharing)
 
 ### Before submitting, check:
 
