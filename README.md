@@ -1,4 +1,4 @@
-# CSOT Quant Finance & Research — Week 1
+# CSOT Quant Finance & Research (Week 1)
 
 This week will cover:
 1. An introduction to finance, markets, and where quant firms stand in all of this.
