@@ -82,6 +82,8 @@ https://www.investopedia.com/terms/t/trade-signal.asp
 **Read:** https://algotrading101.com/learn/backtesting-guide/
 https://algotrading101.com/wiki/backtesting-biases-and-risks/
 
+**Explore:** [Here you can backtest on actual market data](https://blueshift.quantinsti.com/)
+
 A backtest simulates your strategy on historical data to estimate how it would have performed. It's the first filter, not the last. The results are almost always optimistic, for reasons that are worth understanding now rather than after you've fallen in love with a Sharpe of 3.
 
 - **Lookahead bias** — accidentally using future information to make past decisions. Classic example: computing a signal with today's close and then trading at today's open. Easy to introduce, hard to spot.
