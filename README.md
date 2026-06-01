@@ -126,16 +126,16 @@ https://algotrading101.com/learn/build-my-own-custom-backtester-python/
 
 ## Week 1 Task
 
-### Your First Signal Analysis — Jupyter Notebook
+### Your First Signal Analysis (Jupyter Notebook)
 
-Pull at least 3 years of daily price data for any liquid stock or index of your choice using `yfinance`. You'll work through three parts. Each one builds on the last — don't skip ahead.
+Pull at least 3 years of daily price data for any liquid stock or index of your choice using `yfinance`. You'll work through three parts. Each one builds on the last. Do not skip ahead.
 
 ---
 
-### Part 1 — Return Profile and Benchmark
+### Part 1: Return Profile and Benchmark
 *~25% of marks*
 
-Compute daily log returns. (Not price changes — log returns. The difference matters, and you'll see why when you look at the distribution.)
+Compute daily log returns. (Not price changes. LOG RETURNS. The difference matters, and you'll see why when you look at the distribution.)
 
 Plot the return distribution. Does it look normal? Where are the tails thicker than you'd expect from a bell curve?
 
@@ -151,7 +151,7 @@ Every number your signal produces in Part 2 gets compared against this. If your 
 
 ---
 
-### Part 2 — Your Signal
+### Part 2: Your Signal
 *~50% of marks*
 
 **Write your hypothesis in a Markdown cell before you write any code.** Use this structure:
@@ -162,13 +162,13 @@ The mechanism is the hard part. "Stocks go up after this pattern" is not a mecha
 
 Then:
 
-- Implement your signal using price or volume data only — define it precisely enough that someone else could reimplement it from your description alone
-- For each day, classify whether your signal is **on** or **off** (or above/below a threshold — define it clearly)
+- Implement your signal using price or volume data only. Define it precisely enough that someone else could reimplement it from your description alone
+- For each day, classify whether your signal is **on** or **off** (or above/below a threshold. Define clearly)
 - Simulate a simple strategy: **long when signal is on, flat when off**
 
 Report for your strategy:
 
-- Average return over the next 5 trading days in each signal state — does the direction match what your hypothesis predicted?
+- Average return over the next 5 trading days in each signal state. Does the direction match what your hypothesis predicted?
 - Annualised return
 - Annualised Sharpe ratio
 - Maximum drawdown
@@ -177,13 +177,11 @@ Compare all four metrics side-by-side against your Part 1 benchmark.
 
 ---
 
-### Part 3 — Honest Assessment
+### Part 3: Honest Assessment
 *~25% of marks*
 
-This is the part most people rush. Don't.
-
 - What is the **single biggest reason** this result might not hold in live trading? Pick one and explain it specifically, not a generic list of risks.
-- How many **genuinely independent observations** does your sample contain? If your signal uses a 20-day rolling window, you don't have 3 × 252 = 756 independent data points — you have roughly 756/20 ≈ 38. Work out approximately how many you have, and explain why it matters for how much you should trust your Sharpe estimate.
+- How many **genuinely independent observations** does your sample contain? If your signal uses a 20-day rolling window, you don't have 3 × 252 = 756 independent data points, you have roughly 756/20 ≈ 38. Work out approximately how many you have, and explain why it matters for how much you should trust your Sharpe estimate.
 - Looking at your Sharpe and drawdown numbers **together**: is your signal a genuine improvement over buy-and-hold, a tradeoff, or worse on both? Be specific about which numbers you're comparing and what conclusion follows.
 
 ---
@@ -197,7 +195,7 @@ This is the part most people rush. Don't.
 - [ ] Sharpe computed correctly: annualised, risk-free rate clearly stated
 - [ ] Max drawdown computed from the equity curve, not the return series
 - [ ] Every section has a Markdown cell explaining what you're doing and why
-- [ ] Part 3 answered honestly — a bad result with clear reasoning scores higher than a good-looking result with no explanation
+- [ ] Part 3 answered honestly. Note: A bad result with clear reasoning scores higher than a good-looking result with no explanation
 
 **Format:** `.ipynb`, or a link to google colab file with read access to all, clean cell outputs, submitted by end of Week 
 
