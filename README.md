@@ -1,9 +1,9 @@
 # CSOT Quant Finance & Research — Week 1
 
 This week will cover:
-1. An introduction to finance, markets, and where quant firms stand in all of this
-2. The workflow of how a quantitative strategy is created, tested and deployed, then an insight into the components of a strategy
-3. Introduction to some tools and a task for the week
+1. An introduction to finance, markets, and where quant firms stand in all of this.
+2. The workflow of how a quantitative strategy is created, tested and deployed, then an insight into the components of a strategy.
+3. Introduction to some tools and a task for the week.
 
 This week has three phases. Work through them in order, each one feeds the next. Total time is **~8–10 hours**; you have the full week to finish.
 
@@ -117,8 +117,8 @@ https://algotrading101.com/learn/build-my-own-custom-backtester-python/
 
 | # | Resource | Notes | Time |
 |---|----------|-------|------|
-| 1 | [Time Series Analysis with Pandas — Towards Data Science](https://towardsdatascience.com/time-series-analysis-with-pandas-e6281a5fcda0) | Date indexing, resampling, rolling windows — focused on financial time-series specifically. Slow down on rolling windows; you'll need them. | 20 min |
-| 2 | [yfinance — PyPI](https://pypi.org/project/yfinance/) | How you'll pull real market data. Read the README to understand what the library returns and how it's structured. Note the difference between `download()` for multiple tickers and `Ticker().history()` for a single name with more metadata. | 10 min |
+| 1 | [Time Series Analysis with Pandas : Towards Data Science](https://towardsdatascience.com/time-series-analysis-with-pandas-e6281a5fcda0) | Date indexing, resampling, rolling windows, focused on financial time-series specifically. Slow down on rolling windows. You'll need them. | 20 min |
+| 2 | [yfinance: PyPI](https://pypi.org/project/yfinance/) | How you'll pull real market data. Read the README to understand what the library returns and how it's structured. Note the difference between `download()` for multiple tickers and `Ticker().history()` for a single name with more metadata. | 10 min |
 | 3 | [Quant Finance with Python and Pandas](https://www.youtube.com/watch?v=b9RgHa1CnH4&t=26s) | A tutorial video covering everything you need for this task. | 10 min |
 
 
