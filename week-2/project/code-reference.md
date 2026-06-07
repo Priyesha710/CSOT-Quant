@@ -67,16 +67,16 @@ X_train = train[feature_cols]
 ### Handling Missing Values
 
 ```python
-# Fill NaN with the median of each column
-X_train = X_train.fillna(X_train.median())
+from sklearn.impute import SimpleImputer
 
-# IMPORTANT: use the TRAINING median for test data too (prevents data leakage)
-X_test = X_test.fillna(X_train.median())
+imputer = SimpleImputer(strategy='median')
+X_train_imputed = imputer.fit_transform(X_train)
+X_test_imputed = imputer.transform(X_test)
 ```
 
 | Method | What it does |
 |---|---|
-| `.fillna(value)` | Replaces all NaN cells with `value`. If `value` is a Series (like `.median()`), each column gets its own fill value. |
+| `.fillna(value)` | Replaces all NaN cells with `value`. If `value` is a Series (like `.median()`), each column gets its own fill value. Useful for quick experiments, but be careful not to fit those statistics on future validation rows. |
 | `.median()` | Returns the median (middle value) of each numeric column. |
 | `.mean()` | Returns the mean (average) of each numeric column. |
 | `.dropna()` | Removes rows that contain any NaN (alternative to filling). |
@@ -334,7 +334,14 @@ score = r2_score(y_true, y_predicted)
 ### Cross-Validation — TimeSeriesSplit
 
 ```python
+from sklearn.impute import SimpleImputer
 from sklearn.model_selection import TimeSeriesSplit
+from sklearn.pipeline import Pipeline
+
+model = Pipeline([
+    ('imputer', SimpleImputer(strategy='median')),
+    ('regressor', LinearRegression())
+])
 
 tscv = TimeSeriesSplit(n_splits=5)
 
@@ -345,6 +352,8 @@ for train_idx, val_idx in tscv.split(X_train):
     score = r2_score(y_train.iloc[val_idx], val_pred)
     print(f"Fold R²: {score:.4f}")
 ```
+
+Using a `Pipeline` keeps the imputer inside each fold. That avoids leaking future information from the validation period into the fill values.
 
 **Why TimeSeriesSplit instead of random split?**
 

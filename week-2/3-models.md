@@ -108,7 +108,7 @@ This is called **bagging** (Bootstrap Aggregating):
 **Weaknesses:**
 - Slower to train (many trees)
 - Less interpretable than a single tree
-- Can still overfit if you use too many trees with too much depth
+- Can still overfit if trees are too deep or other regularization is too weak; adding more trees mostly increases compute cost
 
 ```python
 from sklearn.ensemble import RandomForestRegressor

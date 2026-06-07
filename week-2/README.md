@@ -30,9 +30,9 @@ Work through the phases in order. Each one feeds the next.
 
 | # | Phase | Time | Content |
 |---|-------|------|---------|
-| 1 | [ML Foundations](phases/1-ml-foundations.md) | ~2 hours | What ML is, supervised learning, regression, overfitting, R² |
-| 2 | [Feature Engineering](phases/2-feature-engineering.md) | ~3 hours | Derived signals, technical indicators, lag features, leakage |
-| 3 | [ML Models](phases/3-models.md) | ~3 hours | Linear regression, trees, random forests, XGBoost, validation |
+| 1 | [ML Foundations](1-ml-foundations.md) | ~2 hours | What ML is, supervised learning, regression, overfitting, R² |
+| 2 | [Feature Engineering](2-feature-engineering.md) | ~3 hours | Derived signals, technical indicators, lag features, leakage |
+| 3 | [ML Models](3-models.md) | ~3 hours | Linear regression, trees, random forests, XGBoost, validation |
 | — | [Project](project/README.md) | Rest of week | Predict returns on test data, submit CSV, get scored |
 
 **Total time:** ~8–10 hours learning + project work.
@@ -47,7 +47,7 @@ Everything you need:
 pip install pandas numpy scikit-learn xgboost lightgbm matplotlib seaborn
 ```
 
-Or use **Google Colab** — all libraries above are pre-installed, zero setup.
+Or use **Google Colab** — most of the libraries above are usually available already. If a package such as `lightgbm` is missing, install it in a cell with `!pip install lightgbm`.
 
 If working locally and you don't have Jupyter:
 ```bash
