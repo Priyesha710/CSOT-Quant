@@ -92,10 +92,6 @@ def main():
         print("Note: Negative R² means predictions are worse than predicting the mean.")
     elif r2 < 0.01:
         print("Note: R² near zero — model barely outperforms mean prediction.")
-    elif r2 < 0.05:
-        print("Note: Decent for financial data — model captures some signal.")
-    else:
-        print("Note: Strong R² for financial returns — verify no data leakage.")
 
 
 if __name__ == "__main__":
