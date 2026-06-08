@@ -20,7 +20,7 @@ You might think: "just give the model today's closing price and let it predict t
 
 1. **Non-stationarity.** A stock at ₹500 today and ₹5000 a year from now has completely different price levels, but the return dynamics might be identical. The model has no way to learn this if you feed it raw prices.
 
-   *What does "stationary" mean?* A time series is **stationary** if its statistical properties — mean, variance, autocorrelation — don't change over time. Stock prices are non-stationary (they trend upward over decades, and volatility changes across regimes). Returns, on the other hand, tend to fluctuate around a stable mean with roughly constant variance — making them much closer to stationary, and therefore usable as ML inputs.
+   *What does "stationary" mean?* A time series is **stationary** if its statistical properties — mean, variance, autocorrelation — don't change over time. Stock prices are non-stationary (they trend upward over decades, and volatility changes across regimes). Returns, on the other hand, are much closer to stationary and usually easier for models to work with, though they still show volatility clustering, fat tails, and regime shifts.
 
 2. **Scale dependence.** If you train on multiple stocks, one trading at ₹50 and another at ₹5000, raw price creates a false distinction that has nothing to do with returns.
 
@@ -255,12 +255,14 @@ Rolling computations produce NaN for the first N rows (not enough history). You 
 # Option 1: Drop rows with NaN (simplest, lose some data)
 df = df.dropna()
 
-# Option 2: Forward-fill (risky — can introduce leakage if not careful)
+# Option 2: Forward-fill (causal if done in time order, but still use care)
 df = df.fillna(method='ffill')
 
 # Option 3: Fill with column median (safe for tree-based models)
 df = df.fillna(df.median())
 ```
+
+Forward-fill itself is not leakage when you process rows in chronological order, because it only copies the most recent known past value forward. Leakage happens when you compute fill values or other preprocessing statistics using future rows.
 
 For your project: dropping NaN rows is the safest and simplest approach. You'll lose the first ~20 rows (depending on your longest rolling window) which is fine with years of daily data.
 

@@ -22,6 +22,14 @@ The data lives in the `data/` folder:
 
 The target column is `target` — it represents the forward N-day return (continuous value, can be positive or negative).
 
+For this project, interpret that as:
+
+```text
+target_t = (Close_{t+N} / Close_t) - 1
+```
+
+That means the row for day `t` may use features known by the end of day `t`, and the label measures the return from close `t` to close `t+N`. You should not use information from `t+1` or later when building features for row `t`.
+
 ### Feature Columns
 
 The dataset contains a mix of:
@@ -29,7 +37,7 @@ The dataset contains a mix of:
 - **Pre-computed technical indicators** (RSI, moving average ratios, volatility measures, momentum)
 - **Lag features** (past returns at various horizons)
 
-A complete description of each column will be in the dataset header. All features are computed using only data available at prediction time (no leakage in the provided features).
+A complete description of each column will be provided alongside the dataset documentation and column names. All provided features are computed using only data available at prediction time (no leakage in the provided features).
 
 ### Data Format
 
@@ -124,28 +132,30 @@ feature_cols = [c for c in train.columns if c not in [target_col, id_col]]
 X_train = train[feature_cols]
 y_train = train[target_col]
 X_test = test[feature_cols]
-
-# Handle missing values
-X_train = X_train.fillna(X_train.median())
-X_test = X_test.fillna(X_train.median())  # use TRAIN median for test too
 ```
 
 ### Step 3: Train a baseline model
 
 ```python
+from sklearn.impute import SimpleImputer
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import r2_score
-
-model = LinearRegression()
-model.fit(X_train, y_train)
-
-# Validate on a held-out portion of training data
 from sklearn.model_selection import TimeSeriesSplit
+from sklearn.pipeline import Pipeline
+
+model = Pipeline([
+    ('imputer', SimpleImputer(strategy='median')),
+    ('regressor', LinearRegression())
+])
+
 tscv = TimeSeriesSplit(n_splits=5)
 for train_idx, val_idx in tscv.split(X_train):
     model.fit(X_train.iloc[train_idx], y_train.iloc[train_idx])
     val_pred = model.predict(X_train.iloc[val_idx])
     print(f"Fold R²: {r2_score(y_train.iloc[val_idx], val_pred):.4f}")
+
+# After validation, fit on the full training data before predicting on test
+model.fit(X_train, y_train)
 ```
 
 ### Step 4: Try a better model
@@ -176,7 +186,7 @@ submission.to_csv('my_submission.csv', index=False)
 | Mistake | Why it's bad | Fix |
 |---------|-------------|-----|
 | Random train/test shuffle | Leaks future data into training | Use time-ordered split or `TimeSeriesSplit` |
-| Not handling NaN | Model crashes or produces NaN predictions | `fillna()` with median before training |
+| Not handling NaN | Model crashes or produces NaN predictions | Fit an imputer on the training fold only, ideally inside a `Pipeline` |
 | Using `id` as a feature | It's an identifier, not a predictor | Exclude from feature columns |
 | Training on test data | Circular — inflates score to meaninglessness | Never call `.fit()` with test data |
 | Submitting wrong format | Score computation fails | Match `sample_submission.csv` exactly |

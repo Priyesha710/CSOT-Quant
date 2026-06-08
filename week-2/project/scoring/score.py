@@ -42,6 +42,14 @@ def validate_submission(submission: pd.DataFrame, actuals: pd.DataFrame) -> list
         n_inf = np.isinf(submission['predicted_target']).sum()
         errors.append(f"Submission has {n_inf} Inf values in predicted_target")
 
+    if submission['id'].duplicated().any():
+        n_dup = submission['id'].duplicated().sum()
+        errors.append(f"Submission has {n_dup} duplicate ID rows")
+
+    if actuals['id'].duplicated().any():
+        n_dup = actuals['id'].duplicated().sum()
+        errors.append(f"Actuals file has {n_dup} duplicate ID rows")
+
     expected_ids = set(actuals['id'].values)
     submitted_ids = set(submission['id'].values)
 
@@ -52,6 +60,11 @@ def validate_submission(submission: pd.DataFrame, actuals: pd.DataFrame) -> list
     extra = submitted_ids - expected_ids
     if extra:
         errors.append(f"Found {len(extra)} unexpected IDs in submission")
+
+    if len(submission) != len(actuals):
+        errors.append(
+            f"Submission row count ({len(submission)}) does not match actuals row count ({len(actuals)})"
+        )
 
     return errors
 
