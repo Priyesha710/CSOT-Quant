@@ -32,18 +32,28 @@ That means the row for day `t` may use features known by the end of day `t`, and
 
 ### Feature Columns
 
-The dataset contains a mix of:
-- **Raw OHLCV-derived columns** (returns, volume ratios)
-- **Pre-computed technical indicators** (RSI, moving average ratios, volatility measures, momentum)
-- **Lag features** (past returns at various horizons)
+The dataset contains raw OHLCV columns plus a small set of pre-computed features. Every column is described below.
 
-A complete description of each column will be provided alongside the dataset documentation and column names. All provided features are computed using only data available at prediction time (no leakage in the provided features).
+| Column | Type | Meaning |
+|--------|------|---------|
+| `id` | int | Unique row identifier — use this in your submission. Not a predictor. |
+| `Date` | date | Trading date for the observation. |
+| `Open` / `High` / `Low` / `Close` | float | Daily OHLC prices. |
+| `Volume` | float | Daily traded volume. |
+| `feature_ret_1d` | float | 1-day past return, `Close_t / Close_{t-1} − 1`. |
+| `feature_ret_5d` | float | 5-day past return, `Close_t / Close_{t-5} − 1`. |
+| `feature_sma_20_ratio` | float | Close relative to its 20-day simple moving average, `Close / SMA(20)`. |
+| `feature_vol_ratio_20d` | float | Volume relative to its 20-day average. |
+| `feature_high_low_spread` | float | Intraday range, `(High − Low) / Close`. |
+| `target` | float | **Train only.** Forward 10-day return, `Close_{t+10} / Close_t − 1`. |
+
+All provided features are computed using only data available at prediction time (no leakage in the provided features). You're free to engineer additional features from these columns — just keep them backward-looking.
 
 ### Data Format
 
 - Each row is one observation (one day for one asset)
 - The `id` column uniquely identifies each row — use this in your submission
-- Features are numeric (float). Some may have NaN values — you'll need to handle them.
+- Features are numeric (float).
 
 ---
 
