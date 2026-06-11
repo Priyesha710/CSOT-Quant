@@ -96,7 +96,7 @@ Signs of overfitting:
 
 **Watch:** [StatQuest: Bias and Variance](https://www.youtube.com/watch?v=EuBBz3bI-aA) (~7 min)
 
-**Read:** [Overfitting vs Underfitting — Towards Data Science](https://towardsdatascience.com/overfitting-vs-underfitting-a-complete-example-d05dd7e19c10/)
+**Read:** [Overfitting vs Underfitting — Towards Data Science](https://towardsdatascience.com/overfitting-versus-underfitting/)
 
 ---
 
@@ -120,7 +120,7 @@ R² = 1 - (sum of squared prediction errors) / (sum of squared deviations from t
 
 In real financial return predictions, even R² = 0.02–0.05 can be economically significant at scale. R² = 0.8 would mean markets are almost perfectly predictable (they're not).
 
-**Watch:** [StatQuest: R-squared, clearly explained](https://www.youtube.com/watch?v=2AQKCEsc48o) (~12 min)
+**Watch:** [StatQuest: R-squared, clearly explained](https://www.youtube.com/watch?v=bMccdk8EdGo) (~12 min)
 
 ---
 
