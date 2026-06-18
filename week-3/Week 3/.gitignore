@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.venv/
+venv/
+.DS_Store
+
+# Dataset is downloaded from Google Drive (see data/download_data.md) — never commit it
+data/*.parquet
+
+# Generated locally by notebooks/main.ipynb — re-create it, don't commit a stale one
+submission.csv

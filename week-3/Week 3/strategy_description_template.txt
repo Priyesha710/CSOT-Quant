@@ -1,0 +1,36 @@
+Strategy Description — [Team Name]
+====================================
+
+1. Core Idea
+------------
+[1-2 sentences: what market inefficiency or pattern is this strategy trying to
+capture? e.g. short-term mean reversion, cross-sectional momentum, volatility
+risk premium, etc.]
+
+2. Signal Construction
+-----------------------
+- Features used: [list the columns from data/features.parquet you relied on]
+- How they're combined: [e.g. simple average, weighted z-score, ML model, ...]
+- Lookback / smoothing choices and why: [...]
+
+3. Portfolio Construction
+---------------------------
+- Ranking / scoring method: [how stocks are scored each day]
+- Selection rule: [e.g. top/bottom X% by score, threshold-based, ...]
+- Weighting scheme: [e.g. equal-weight, score-weighted, inverse-volatility]
+- How the dollar-neutral and max-weight constraints are enforced: [...]
+
+4. Risk Controls
+------------------
+- [e.g. position limits, volatility filters, exposure caps by sector/cluster
+  if applicable, turnover limits]
+
+5. Known Limitations / Things You'd Try Next
+-----------------------------------------------
+- [Be honest — what didn't work, what you'd explore with more time]
+
+6. Backtest Summary (training period)
+-----------------------------------------
+- Net Sharpe Ratio: [value]
+- Gross Sharpe Ratio: [value]
+- Turnover: [value]%
