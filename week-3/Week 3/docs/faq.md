@@ -42,8 +42,7 @@ Only your last valid submission before the deadline is scored.
 
 **How many submissions can I make, and what's the team size?**
 You may submit as many times as you like before the deadline; only the last
-valid one counts. Teams of up to 4 participants are allowed. (Organizers: adjust
-this line if your rules differ.)
+valid one counts.
 
 **Where do I get the data?**
 See `data/download_data.md` — the parquet files are hosted on Google Drive and
